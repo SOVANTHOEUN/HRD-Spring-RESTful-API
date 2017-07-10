@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<meta charset="UTF-8" />
+<title th:text="#{_ta_user_profile}">Dashboard</title>
+</head>
+<body>
+
+	<div layout:fragment="content">
+		<!-- Row -->
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="panel panel-default card-view">
+					<div class="panel-heading">
+						<div class="pull-left">
+							<h2 class="ta-font-kh-header" th:text="#{_ta_user_profile}">User
+								Profile</h2>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+
+					<!-- ########################### -->
+
+					<div class="row">
+						<div class="panel panel-default card-view">
+							<div class="panel-wrapper collapse in">
+								<div class="panel-body">
+									<div th:object="${USER}" class="row">
+										<div class="col-md-3">
+											<div class="item-big">
+												<img class="img-responsive" id="item-display"
+													th:src="*{gender}=='m'? @{/resources/flag/_gender_male.jpg} : @{/resources/flag/_gender_female.jpg}"
+													alt="product">
+											</div>
+										</div>
+
+										<div class="col-md-9">
+											<div class="product-detail-wrap">
+												<h2 th:text="*{username}" style="text-transform: uppercase;">Kun
+													Tola</h2>
+												<hr />
+
+												<p>
+													<i class="icon-li fa fa-"
+														th:attrappend="class=*{gender}!='f'?'male':'female'"></i> <b
+														th:text="*{gender}!='f'?'Male':'Female'"> Male</b>
+												</p>
+												<p>
+													<i class="icon-li fa fa-mobile-phone"></i> <b
+														th:text="*{phonenumber}"> +855 947 841</b>
+												</p>
+												<p>
+													<i class="icon-li fa fa-envelope"></i> <b th:text="*{email}">
+														kuntola883@gmail.com</b>
+												</p>
+												<p>
+													<i class="icon-li fa fa-"
+														th:attrappend="class=*{status}=='y'?'unlock':'lock'"></i> <b
+														th:text="*{status}=='y'?'Yes':'No'"> Yes</b> [Status]
+												</p>
+												<p>
+													<i class="icon-li fa fa-clock-o"></i> <b
+														th:text="*{created_date}"> 2017-06-23</b> [Registered]
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- ########################### -->
+
+				</div>
+			</div>
+		</div>
+		<!-- /Row -->
+	</div>
+</html>

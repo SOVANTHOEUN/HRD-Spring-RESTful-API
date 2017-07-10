@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<meta charset="UTF-8" />
+<title th:text="#{_ta_header_dashboard}">Dashboard</title>
+</head>
+<body>
+
+	<div layout:fragment="content">
+		<!-- Row -->
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="panel panel-default card-view">
+					<div class="panel-heading">
+						<div class="pull-left">
+							<h2 class="ta-font-kh-header" th:text="#{_ta_header_dashboard}">Dashboard</h2>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+
+					<!-- ########################### -->
+
+					<div class="row">
+						<div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
+							<div class="panel panel-default card-view pa-0">
+								<div class="panel-wrapper collapse in">
+									<div class="panel-body pa-0">
+										<div class="sm-data-box bg-green">
+											<div class="row ma-0">
+												<div class="col-xs-5 text-center pa-0 icon-wrap-left">
+													<i class=" glyphicon glyphicon-user txt-light"></i>
+												</div>
+												<div class="col-xs-7 text-center data-wrap-right">
+													<h6 class="txt-light ta-font-kh"
+														th:text="#{_ta_total_user_m}">TOTAL MALE USERS</h6>
+													<span class="txt-light counter counter-anim ta-font-kh"
+														th:text="${MALE_TOTAL}">45678</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+						<div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
+							<div class="panel panel-default card-view pa-0">
+								<div class="panel-wrapper collapse in">
+									<div class="panel-body pa-0">
+										<div class="sm-data-box bg-green">
+											<div class="row ma-0">
+												<div class="col-xs-5 text-center pa-0 icon-wrap-left">
+													<i class="glyphicon glyphicon-user txt-light ta-icon-size-big"></i>
+												</div>
+												<div class="col-xs-7 text-center data-wrap-right">
+													<h6 class="txt-light ta-font-kh"
+														th:text="#{_ta_total_user_f}">TOTAL FEMALE USERS</h6>
+													<span class="txt-light counter counter-anim ta-font-kh"
+														th:text="${FEMALE_TOTAL}">45678</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<div class="col-lg-4 col-lg-offset-2 col-md-4 col-sm-5 col-xs-12">
+							<div class="panel panel-default card-view pa-0">
+								<div class="panel-wrapper collapse in">
+									<div class="panel-body pa-0">
+										<div class="sm-data-box bg-red">
+											<div class="row ma-0">
+												<div class="col-xs-5 text-center pa-0 icon-wrap-left">
+													<i class="fa fa-group txt-light ta-icon-size-big"></i>
+												</div>
+												<div class="col-xs-7 text-center data-wrap-right">
+													<h6 class="txt-light ta-font-kh"
+														th:text="#{_ta_total_user}">TOTAL USERS</h6>
+													<span class="txt-light counter counter-anim ta-font-kh"
+														th:text="${TOTAL}">45678</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					<!-- ########################### -->
+
+				</div>
+			</div>
+		</div>
+		<!-- /Row -->
+	</div>
+</html>

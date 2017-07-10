@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<meta charset="ISO-8859-1">
+<title th:text="#{_ta_user_reg}">Insert title here</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="panel panel-default card-view">
+			<h2 class="ta-font-kh-header" th:text="#{_ta_user_reg}"></h2>
+			<form th:action="@{/user/save}" th:object="${USER}" method="POST">
+				<div class="form-group">
+					<label for="email" class="ta-font-kh"
+						th:text="#{_ta_user_reg_name}"></label> <input
+						th:field="*{username}" type="text" class="form-control"
+						id="username" name="username">
+				</div>
+				<div class="form-group">
+					<label for="email" class="ta-font-kh"
+						th:text="#{_ta_user_reg_email}"></label> <input
+						th:field="*{email}" type="email" class="form-control" id="email"
+						name="email">
+				</div>
+				<div class="form-group">
+					<label for="pwd" class="ta-font-kh" th:text="#{_ta_user_reg_phone}"></label>
+					<input th:field="*{phonenumber}" type="text" class="form-control"
+						id="pwd" name="pwd">
+				</div>
+
+				<div class="form-group mb-30">
+					<label class="control-label mb-10 text-left" class="ta-font-kh"
+						th:text="#{_ta_user_reg_gender}"></label>
+					<div class="radio radio-info">
+						<input th:field="*{gender}" type="radio" name="radio" id="radio1"
+							value="m" checked> <label for="radio1" class="ta-font-kh"
+							th:text="#{_ta_male}"> </label>
+					</div>
+					<div class="radio radio-info">
+						<input th:field="*{gender}" type="radio" name="radio" id="radio2"
+							value="f"> <label for="radio2" class="ta-font-kh"
+							th:text="#{_ta_female}"> </label>
+					</div>
+				</div>
+				<button type="submit" class="btn btn-success ta-font-kh"
+										th:text="#{_ta_button_save}"></button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

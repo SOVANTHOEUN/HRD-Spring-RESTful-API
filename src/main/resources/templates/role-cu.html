@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<meta charset="ISO-8859-1">
+<title th:text="#{_ta_role_reg}">Insert title here</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="panel panel-default card-view">
+			<h2 class="ta-font-kh-header" th:text="#{_ta_role_reg}"></h2>
+			<form action="USER_CU" method="POST">
+				<div class="form-group">
+					<label for="id-role" class="ta-font-kh"
+									th:text="#{_ta_role_reg_id}"></label><input type="text"
+						class="form-control" id="Id-role" placeholder="Enter Role-ID"
+						name="Role-Id">
+				</div>
+				<div class="form-group">
+					<label for="role-name" class="ta-font-kh"
+									th:text="#{_ta_role_reg_name}"></label> <input type="text"
+						class="form-control" id="Role-name" placeholder="Enter Role-name"
+						name="Role-name">
+				</div>
+				
+				<button type="submit" class="btn btn-default ta-font-kh" th:text="#{_ta_button_save}"></button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

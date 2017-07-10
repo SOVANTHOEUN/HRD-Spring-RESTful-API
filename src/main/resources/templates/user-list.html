@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title th:text="#{_ta_user_list}">user-list</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="row">
+			<!-- Basic Table -->
+			<div class="col-sm-12">
+				<div class="panel panel-default card-view">
+					<div class="panel-heading">
+						<div class="pull-left">
+							<h2 class="ta-font-kh-header" th:text="#{_ta_user_list}"></h2>
+						</div>
+					</div>
+					<div class="panel-wrapper collapse in">
+						<div class="panel-body">
+							<div class="table-wrap mt-40">
+								<div class="table-responsive">
+									<table class="table mb-0">
+										<thead>
+											<tr class="ta-font-kh ta-th">
+												<th th:text="#{_ta_no}">No.</th>
+												<th th:text="#{_ta_user_reg_name}">User Name</th>
+												<th th:text="#{_ta_user_reg_email}">Email</th>
+												<th th:text="#{_ta_user_reg_gender}">Gender</th>
+												<th th:text="#{_ta_user_reg_phone}">Phone</th>
+												<th th:text="#{_ta_status}">Status</th>
+												<th th:text="#{_ta_action}">Action</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr th:each="user : ${USERS}">
+												<td th:text="${user.id}">1</td>
+												<td th:text="${user.username}">Kun Tola</td>
+												<td th:text="${user.email}">kuntola883@gmail.com</td>
+												<td th:text="${user.gender}=='m'?'Male':'Female'">Male
+												</td>
+												<td th:text="${user.createdDate}">10/07/2017</td>
+												<td th:text="${user.role_id}">role</td>
+												<td class="ta-center-col"><span class="label label-"
+													th:attrappend="class=${user.status}=='y'?'success':'danger'"
+													th:text="${user.status}=='y'?'Yes':'No'">YES</span></td>
+												<td class="ta-center-col"><a title="Detail"
+													th:href="@{/user/user-profile/{user_hash}(user_hash=${user.user_hash})}"
+													class="btn btn-success btn-icon-anim btn-circle"> <i class="fa fa-info"></i>
+												</a> <a title="Delete"
+													onclick="return confirm('Are you sure you want to delete this item?');"
+													th:href="@{/user/delete/{user_hash}(user_hash=${user.user_hash})}"
+													class="btn btn-danger btn-icon-anim btn-circle"> <i class="fa fa-trash-o"></i>
+												</a> <a title="Update"
+													th:href="@{/user/update/{user_hash}(user_hash=${user.user_hash})}"
+													class="btn btn-warning btn-icon-anim btn-circle"><i class="fa fa-edit"></i>
+												</a></td>
+												<td th:text="${user.remark}">developer</td>
+											</tr>
+
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /Basic Table -->
+		</div>
+	</div>
+</body>
+</html>
